@@ -1,14 +1,20 @@
-import React from "react"
-import ReactDOM from "react-dom"
+import React from "react";
+// import { Route, Switch } from "react-router-dom";
+// import "../../styles/styles.css";
 
-function App() {
-	return(
-		<div><h1>helsdgssooyyy</h1></div>
-	)
-	
-}
-ReactDOM.render(<App />, document.getElementById("app"));
+export default function App() { 
+  return (
+    <div className="container-fluid mt-4">
+<h3> okkk</h3>
 
-if (module.hot) {
-	module.hot.accept()
+      {/* <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/cart" component={CartPage} />
+        <Route path="/signIn" component={SignIn} />
+        <Route path="/creditcard" component={CreditCard} />
+        <Route path="/createAcount" component={CreateAcount} />
+        <Route component={NotFound} />
+      </Switch> */}
+    </div>
+  );
 }
