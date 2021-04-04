@@ -12,6 +12,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "bootstrap": "^4.6.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-scripts": "^4.0.3"
