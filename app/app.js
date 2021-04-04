@@ -1,38 +1,63 @@
-import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-// import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
+import React, { useState } from 'react';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import Chart from './Chart.js';
 
 function App() {
-	return(
-	<div>
-		{/* <!-- Button trigger modal --> */}
-<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+	const [ open, setOpen ] = useState(false);
+	const openToggle = () => setOpen(!open);
 
-{/* <!-- Modal --> */}
-<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        ...
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-	</div>
-	)
+	const [ isSend, setIsSend ] = useState(false);
+	const sendToggle = () => {
+		setIsSend(!isSend);
+	};
 
+	return (
+		<div
+			className="container mt-3 p-3"
+			style={{
+				width: '100%',
+				height: '550px',
+				backgroundImage:
+					'url(https://image.shutterstock.com/z/stock-vector-abstract-lines-and-dots-connect-background-technology-connection-digital-data-and-big-data-concept-1492332182.jpg)'
+			}}
+		>
+			<Button color="primary" onClick={openToggle} className="sticky-md-top">
+				Set New Invoice
+			</Button>
+			<Modal isOpen={open} >
+				<ModalBody>Fatura body</ModalBody>
+				<ModalFooter>
+					<Button
+						color="primary"
+						onClick={() => {
+							sendToggle();
+							openToggle();
+						}}
+					>
+						Send Invoice with E-mail
+					</Button>
+					<Button color="danger" onClick={openToggle}>
+						Close
+					</Button>
+				</ModalFooter>
+			</Modal>
+			<Modal isOpen={isSend}>
+				<ModalBody>Invoice sended</ModalBody>
+				<Button color="info" onClick={sendToggle}>
+					Close
+				</Button>
+			</Modal>
+			<Chart />
+		</div>
+	);
 }
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById('app')
+);
 
 if (module.hot) {
 	module.hot.accept();
