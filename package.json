@@ -1,7 +1,7 @@
 {
-    "name": "ilyas-webpack",
-    "version": "1.0.0",
-    "description": "",
+    "name": "ilyas-invoice",
+    "version": "0.1.0",
+    "description": "invoice_tasks",
     "main": "index.js",
     "scripts": {
         "dev": "webpack-dev-server",
@@ -9,8 +9,8 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "author": "ilyas",
+    "license": "MIT",
     "dependencies": {
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
